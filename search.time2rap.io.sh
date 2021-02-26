@@ -1,12 +1,13 @@
+#!/bin/bash
 tput reset
-echo "Version 1.0"
+echo "Version 1.0.1"
 echo "Recherche a effectuer sur le site https://www.time2rap.io/"
 read search
 tput reset
 echo "Recherche pour \"$search\" en cours"
 search=$(echo "$search" | sed 's/ /+/g')
 search="https://time2rap.io/?s=$search"
-url=$(curl -s $search | grep 'album-complet.html">$' | cut -c12- | rev | cut -c3- | rev)
+url=$(curl --progress-bar $search | grep 'album-complet.html">$' | cut -c12- | rev | cut -c3- | rev)
 if [[ -n $url ]]; then
 	nb=$(echo -e "$url" | wc -l)
 else
@@ -18,18 +19,20 @@ if [ $nb -eq 0 ]; then
 else
 	tput reset
 	echo "Nombre d'album trouver : $nb"
-	resultat=$(echo -e "$url" | cut -c25- | rev | cut -c20- | rev | sed 's/-/ /g' | awk '{out++; print out") "$0}')
+	resultat=$(echo -e "$url" | cut -c25- | rev | cut -c20- | rev | sed 's/-/ /g' | awk '{out++; print out"|"$0}')
 	echo -e "$resultat"
 	echo -e "\nChoix de l'album"
 	read choix
 	choix=$choix"p"
+	tput reset
+	echo "Recuperation des informations"
 	website=$(echo -e "$url" | sed -n $choix)
-	titre=$(curl -s $website | grep '<title>' | cut -c8- | rev | cut -c104- | rev | sed "s/&rsquo;/'/g" | sed "s/&#8211;/-/g")
+	titre=$(curl --progress-bar $website | grep '<title>' | cut -c8- | rev | cut -c104- | rev | sed "s/&rsquo;/'/g" | sed "s/&#8211;/-/g")
 	artiste=$(echo $titre | cut -d "-" -f 1 | rev | cut -c2- | rev)
 	album=$(echo $titre | cut -d "-" -f 2 | cut -c2- | rev | cut -c1- | rev)
 	if [ -d "$artiste" ]; then
 		tput reset
-		echo "Dossier d'artiste trouver"
+		echo "Dossier de l'artiste trouver"
 		cd "$artiste"
 	else
 		tput reset
@@ -46,15 +49,21 @@ else
 		mkdir "$album"
 		cd "$album"
 		tput reset
-		echo "Scan du site en cours"
-		player=$(curl -s $website | grep '<iframe src' | cut -c22- | rev | cut -c103- | rev)
-		download=$(curl -s $player | grep 'data-download' | cut -d "\"" -f 8 | awk '{print $0"?view=telecharger"}' | sed 's/ /%20/g')
+		echo "Recherche du lien du player"
+		player=$(curl --progress-bar $website | grep '<iframe src' | cut -c22- | rev | cut -c103- | rev)
+		tput reset
+		echo "Recuperation des liens de telechargement"
+		download=$(curl --progress-bar $player | grep 'data-download' | cut -d "\"" -f 8 | awk '{print $0"?view=telecharger"}' | sed 's/ /%20/g')
 		tput reset
 		echo "Telechargement en cours"
-		wget -q $download
+		wget -q --show-progress $download
 		tput reset
 		echo "Renomage des fichiers"
 		find ./ -type f -name "*.mp3?view=telecharger" -exec sh -c 'mv "$(basename "{}")" "$(basename "{}" ?view=telecharger)"' \;
 		tput reset
+		echo "Artiste 	: $artiste"
+		echo "Album		: $album"
+		echo "Repertoire des fichiers :"
+		pwd
 	fi
 fi

@@ -15,3 +15,8 @@ CTRL+C pour arreter le script
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/1.png?raw=true)
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/2.png?raw=true)
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/3.png?raw=true)
+
+Log UPDATE 1.0.1
+- Progres bar
+- Change style tableau
+- Log end downloads
