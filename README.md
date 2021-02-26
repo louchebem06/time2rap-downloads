@@ -11,3 +11,4 @@ Lancer le script
 ./search.time2rap.io.sh
 ```
 Les fichier seront telecharger dans le repertoire courant ranger
+CTRL+C pour arreter le script
