@@ -12,3 +12,6 @@ Lancer le script
 ```
 Les fichier seront telecharger dans le repertoire courant ranger
 CTRL+C pour arreter le script
+![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/1.png?raw=true)
+![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/2.png?raw=true)
+![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/3.png?raw=true)
