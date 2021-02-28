@@ -16,7 +16,10 @@ CTRL+C pour arreter le script
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/2.png?raw=true)
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/3.png?raw=true)
 
+Log UPDATE 1.0.2
+- Test si le site time2rap.io et accesible
+
 Log UPDATE 1.0.1
 - Progres bar
-- Change style tableau
+- Amelioration style tableau de recherche d'album
 - Log end downloads

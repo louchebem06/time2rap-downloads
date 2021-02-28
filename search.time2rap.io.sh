@@ -1,7 +1,16 @@
 #!/bin/bash
 tput reset
-echo "Version 1.0.1"
-echo "Recherche a effectuer sur le site https://www.time2rap.io/"
+echo "Test de l'acces a https://www.time2rap.io/"
+ping -c1 www.time2rap.io && test=1 || test=0 && tput reset
+echo "Version 1.0.2"
+if [ "$test" = 1 ]
+then
+  echo "time2rap.io est en ligne"
+else
+  echo "time2rap.io est hors ligne"
+  exit
+fi
+echo "Recherche a effectuer sur le site"
 read search
 tput reset
 echo "Recherche pour \"$search\" en cours"
