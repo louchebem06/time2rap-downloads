@@ -12,7 +12,7 @@ Lancer le script
 ```
 Les fichier seront telecharger dans le repertoire courant ranger
 CTRL+C pour arreter le script<br>
-<a href="https://user-images.githubusercontent.com/34492446/109463496-65045380-7a65-11eb-907e-81127c9c6b5f.mp4">Demo Video</a>
+<a href="https://user-images.githubusercontent.com/34492446/109463496-65045380-7a65-11eb-907e-81127c9c6b5f.mp4" target="_blank">Demo Video</a><br>
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/1.png?raw=true)
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/2.png?raw=true)
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/3.png?raw=true)
