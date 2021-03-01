@@ -16,6 +16,16 @@ CTRL+C pour arreter le script
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/2.png?raw=true)
 ![alt text](https://github.com/louchebem06/time2rap-downloads/blob/main/img/3.png?raw=true)
 
+PROGRAMME ADDITIONNEL
+- Bash
+- Curl
+- Grep
+- Sed
+Pour les installer
+```shell
+sudo apt update && sudo apt upgrade && sudo apt install bash curl grep sed
+```
+
 FIX BUG
 - Nom des dossiers d'artiste ou d'album
 
