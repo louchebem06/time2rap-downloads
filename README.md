@@ -20,7 +20,7 @@ PROGRAMME ADDITIONNEL
 - Bash
 - Curl
 - Grep
-- Sed
+- Sed<br>
 Pour les installer
 ```shell
 sudo apt update && sudo apt upgrade && sudo apt install bash curl grep sed
