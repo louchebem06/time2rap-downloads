@@ -21,10 +21,12 @@ PROGRAMME ADDITIONNEL
 - Bash
 - Curl
 - Grep
-- Sed<br>
+- Sed
+- wget
+
 Pour les installer
 ```shell
-sudo apt update && sudo apt upgrade && sudo apt install bash curl grep sed
+sudo apt install bash curl grep sed wget
 ```
 
 FIX BUG
