@@ -14,7 +14,7 @@ fi
 tput reset
 echo "Recherche pour \"$search\" en cours"
 search=$(echo "$search" | sed 's/ /+/g')
-search="https://time2rap.io/?s=$search"
+search="https://time2rap.cc/?s=$search"
 url=$(curl --progress-bar $search | grep 'album-complet.html">$' | cut -c12- | rev | cut -c3- | rev)
 if [[ -n $url ]]; then
 	nb=$(echo -e "$url" | wc -l)
